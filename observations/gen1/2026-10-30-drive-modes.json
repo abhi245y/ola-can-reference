@@ -1,0 +1,36 @@
+{
+  "kind": "callback_observation",
+  "profile": "gen1-hvdp-5.0.0",
+  "date": "2026-10-30",
+  "vehicle": "Ola S1 Pro Gen 1",
+  "reported_by": "initial maintainer",
+  "capture_point": "Replacement Android dashboard logging vehicleinterface callbacks, plus passive candump of vcan0 on the head unit",
+  "user_report": "Rider cycled ride modes with the mode button (short presses and a ~3 s hold), entered reverse twice with the reverse button, and confirmed what the stock HMI calls each mode. Hyper access was disabled in the owner app.",
+  "events_observed_in_application_log": [
+    {"source": "IVehicleInfoCallbacks", "method": "onDriveModeChanged", "value": "NORMAL", "note": "after the power button in PARK (VehicleStates DRIVE)"},
+    {"source": "IHandleBarCallbacks", "method": "onDpad_Drive_Mode", "value": "true", "note": "each mode-button press"},
+    {"source": "IVehicleInfoCallbacks", "method": "onDriveModeChanged", "value": "SPORT", "note": "short press from NORMAL"},
+    {"source": "IVehicleCommandCallbacks", "method": "onCommandFromVehicle", "value": "PRNTCNTRL_HYPER_ACS_REVOKED", "note": "emitted when the cycle reaches the Hyper slot; the mode then becomes CUSTOM"},
+    {"source": "IVehicleInfoCallbacks", "method": "onDriveModeChanged", "value": "CUSTOM", "note": "short press from SPORT with Hyper revoked"},
+    {"source": "IVehicleInfoCallbacks", "method": "onDriveModeChanged", "value": "LIMPHOME", "note": "~3 s hold of the mode button; ECU mode LIMPHOME; rider confirmed the stock HMI shows this as Eco"},
+    {"source": "IVehicleInfoCallbacks", "method": "isCruiseReverseMode", "value": "true", "note": "short pulse on the reverse button press"},
+    {"source": "IVehicleModeCallbacks", "method": "onVehicleModeLevel4Changed", "value": "REVERSE"},
+    {"source": "IVehicleInfoCallbacks", "method": "onDriveModeChanged", "value": "PARK_ASSIST", "note": "both reverse entries; the stock HMI setting at the time was Easy Park (forward and back at low speed)"},
+    {"source": "IDisplayInfoCallbacks", "method": "isLeftIndicatorOn / isRightIndicatorOn", "value": "fault REVERSE_MODE", "note": "while in reverse"}
+  ],
+  "displayed_range_by_mode_km": {"NORMAL": 97, "SPORT": 86, "CUSTOM": 104, "LIMPHOME (Eco)": 119, "note": "one scooter at ~70% SOC; IDisplayInfoCallbacks.onRangeChanged"},
+  "raw_frame_changes_on_entering_reverse": [
+    {"frame_id": "0x115", "before": "9001A0..", "after": "C20196..", "note": "same values on both reverse entries"},
+    {"frame_id": "0x143", "change": "byte 1 0x24 -> 0x54", "note": "candidate mode/state bits; see open question for 0x143"},
+    {"frame_id": "0x353", "change": "byte 6 0x04 -> 0x64", "note": "candidate telltale bits; see open question for 0x353"},
+    {"frame_id": "0x683", "before": "0002..", "after": "0001.."}
+  ],
+  "raw_frames_published": false,
+  "limitations": [
+    "Sanitized summary; complete logs, identifiers and the VIN are not published.",
+    "LIMPHOME = Eco is rider-confirmed against the stock HMI on this scooter and firmware only; the enum name is unchanged in the catalog.",
+    "Plain reverse (stock HMI setting other than Easy Park) was not captured; whether it reports DriveModes REVERSE or PARK_ASSIST is unknown.",
+    "Raw-frame changes are before/after comparisons over a few seconds, not decoded field layouts; other bytes moved with speed and temperature.",
+    "One vehicle, one session; other generations and firmware are not covered."
+  ]
+}
