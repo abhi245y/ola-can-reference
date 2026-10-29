@@ -56,7 +56,7 @@ def render(profile):
             enums.append(f"| {value['value']} | 0x{value['value']:02X} | {value['name']} |")
         enums.append("")
     return {ROOT / "docs/generated" / (p + "-frames.md"): "\n".join(lines) + "\n",
-            ROOT / "docs/generated" / (p + "-enums.md"): "\n".join(enums) + "\n"}
+            ROOT / "docs/generated" / (p + "-enums.md"): "\n".join(enums).rstrip() + "\n"}
 
 
 def main():

@@ -688,4 +688,3 @@ Source: `HVDP/sources/com/olaelectric/vehicleinterface/RegenStatus.java:7`; SHA2
 | 2 | 0x02 | Coast_Forced_Regen |
 | 3 | 0x03 | Coast_Brake_Regen |
 | 4 | 0x04 | Coast_Forced_Brake_Regen |
-
