@@ -1,0 +1,24 @@
+{
+  "kind": "callback_observation",
+  "profile": "gen1-hvdp-5.0.0",
+  "date": "2026-10-30",
+  "vehicle": "Ola S1 Pro Gen 1",
+  "reported_by": "initial maintainer",
+  "capture_point": "Replacement Android dashboard using Ola profile service and vehicleinterface callbacks",
+  "user_report": "Handlebar power button showed the replacement keypad; entering the existing PIN unlocked the scooter.",
+  "events_observed_in_application_log": [
+    {"source": "host", "event": "passcode verification accepted"},
+    {"source": "IVehicleModeCallbacks", "method": "onVehicleLockStateBCMChanged", "value": "Vehicle_Unlocked"},
+    {"source": "IVehicleModeCallbacks", "method": "onVehicleStateChanged", "value": "DRIVE"},
+    {"source": "IVehicleInfoCallbacks", "method": "onDriveModeChanged", "value": "NORMAL"},
+    {"source": "host", "event": "keep-alive true"}
+  ],
+  "raw_frames_published": false,
+  "limitations": [
+    "This is a sanitized callback-level summary; no PIN, identifiers, or complete private log is published.",
+    "Raw frame-to-callback correlation, wire timing, and physical ECU attribution are not established by this record.",
+    "Exact physical input order leading to DRIVE is not captured in this published summary.",
+    "Device wall-clock alignment was not independently verified.",
+    "This does not validate ride safety, all display values, or other firmware/generations."
+  ]
+}

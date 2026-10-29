@@ -1,0 +1,22 @@
+name: Correction
+description: Fix an incorrect mapping, unit, ordinal, or confidence claim.
+title: "[Correction] "
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Profile, CAN ID, and file or section
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Current claim and proposed correction
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence and remaining unknowns
+    validations:
+      required: true

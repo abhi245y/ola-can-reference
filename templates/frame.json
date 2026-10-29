@@ -1,0 +1,15 @@
+{
+  "id": "0x000",
+  "decimal_id": 0,
+  "names": ["REPLACE_WITH_EVIDENCE_BACKED_NAME"],
+  "directions": ["constant_only"],
+  "frame_format": "classic_standard",
+  "payload_bytes": null,
+  "evidence": ["REPLACE_WITH_PROFILE_EVIDENCE_ID"],
+  "parsers": [],
+  "transmit_variants": [],
+  "payload_status": "not_curated",
+  "raw_runtime_validation": "unverified",
+  "signals": [],
+  "notes": ["This is a template, not a discovered frame. Replace every placeholder before adding to a catalog."]
+}

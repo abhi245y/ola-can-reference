@@ -1,0 +1,19 @@
+{
+  "kind": "raw_frame_observation",
+  "profile": "REPLACE_WITH_PROFILE",
+  "frame_id": "0x000",
+  "generation": "REPLACE_WITH_GENERATION",
+  "firmware_or_app_version": "REPLACE_WITH_VERSION_AND_ARTIFACT_IDENTITY",
+  "capture_point": "REPLACE_WITH_INTERFACE_AND_KNOWN_DIRECTION",
+  "conditions": "REPLACE_WITH_PARKED_CHARGING_OR_OTHER_CONDITIONS",
+  "samples": [
+    {
+      "relative_time_ms": 0,
+      "payload_hex": "????????????????",
+      "observation": "REPLACE_WITH_OBSERVED_ACTION_OR_VALUE",
+      "redactions": "Unknown bytes are placeholders, not zeroes; replace with reviewed evidence."
+    }
+  ],
+  "interpretation": "REPLACE_WITH_HYPOTHESIS_SEPARATE_FROM_OBSERVATION",
+  "remaining_unknowns": ["REPLACE_WITH_UNKNOWN_UNITS_BITS_TIMING_OR_OTHER_LIMITS"]
+}

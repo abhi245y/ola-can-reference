@@ -1,0 +1,32 @@
+name: New signal or frame
+description: Share a decoded field, unexplained ID, or versioned observation.
+title: "[Finding] "
+body:
+  - type: input
+    id: profile
+    attributes:
+      label: Generation and firmware / app version
+      placeholder: Gen 1, HVDP 5.0.0, artifact hash if available
+    validations:
+      required: true
+  - type: input
+    id: frame
+    attributes:
+      label: CAN ID, direction, and payload length
+      placeholder: 0x354 / 852, received by head unit, 8 bytes
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: Layout, observed behavior, and interpretation
+      description: Include bit positions, endianness, signedness, scaling, units, and unknowns.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and conditions
+      description: Cite source/method/line or a short redacted observation. Exclude private identifiers and credentials.
+    validations:
+      required: true
