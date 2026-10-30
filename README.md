@@ -6,6 +6,11 @@ signals, command vocabularies, and the Android services that expose them.
 Initial coverage is **Gen 1**, pinned to the captured **HVDP 5.0.0** APK.
 Other generations and firmware versions need separate profiles and evidence.
 
+> **Unofficial.** This project is not affiliated with, endorsed by, sponsored by, or
+> supported by Ola Electric. "Ola" and "S1" are trademarks of Ola Electric, used only
+> to describe compatibility. Use it only with a scooter you own; changing your
+> scooter's software may affect its warranty, and you do so at your own risk.
+
 ## Start here
 
 - [Frame catalog](docs/generated/gen1-hvdp-5.0.0-frames.md): 99 known IDs,
@@ -71,5 +76,16 @@ raw-CAN capture. [Validation levels](docs/evidence.md) explain these distinction
 This repository contains independently written descriptions, protocol facts,
 small offline tools, and synthetic examples. APKs, decompiled application code,
 identifiers, credentials, and complete private logs are not included.
+
+## Related projects
+
+- [Ola Dash SDK](https://github.com/abhi245y/ola-dash-sdk) (GPL-3.0-or-later):
+  an open dash platform for the S1 Pro Gen 1 with runtime themes, plugins and a
+  clean-room vehicle-service interface. It reads the same vehicle data this
+  catalog describes.
+- [Ola Dev Skill](https://github.com/abhi245y/ola-dev-skill) (MIT): an AI-agent
+  skill (Claude Code, Codex, Gemini CLI, Cursor) that packages this catalog and
+  the SDK for building themes, plugins and analysis tools. It re-syncs and
+  releases automatically when this repository changes.
 
 Original repository content is available under the [MIT license](LICENSE).
